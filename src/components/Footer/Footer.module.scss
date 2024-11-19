@@ -1,0 +1,101 @@
+@use '../../styles/style.scss' as *;
+
+.footer-container {
+    position: relative;
+
+    .hr {
+        position: absolute;
+        top: 0;
+        left: 1%;
+        
+        width: 98%;
+        
+        border: 1px var(--secondary-color) solid;
+        
+    }
+
+    .footer {
+        position: relative;
+        
+        height: 5vh;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+        color: var(--secondary-color);
+        font-family: $primary-font;
+        font-size: var(--f-size-small);
+        font-weight: 500;
+        
+        .switcher-wrapper {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(-50%, -50%);
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5vw;
+            
+            .switcher {
+                padding: .3rem;
+                
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                background: none;
+                border: none;
+                
+                .icon {
+                    height: var(--f-size-medium);
+                    width: var(--f-size-medium);
+                    
+                    fill: var(--text-color);
+                }
+                
+                
+                &:hover {
+                    background-color: var(--hover-color);
+                    border-radius: 50%;
+                }
+                
+                .icon-off {
+                    fill: red;
+                }
+            }
+        }
+    }
+}
+
+.product-card-footer {
+        background-color: transparent;
+        color: var(--product-page-text-color);
+
+    .hr {
+        border: 1px var(--product-page-text-color) solid;
+    }
+
+    p {
+        position: relative;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.562);
+        backdrop-filter: blur(25px);
+    }
+
+    .switcher-wrapper .switcher .icon {
+        fill: var(--product-page-text-color);
+    }
+}

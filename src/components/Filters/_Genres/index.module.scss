@@ -1,0 +1,41 @@
+.genres-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    .genres-header {
+        font-size: var(--f-size-big);
+    }
+
+    .genres {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5vw;
+
+        .genre {
+            padding: 3px 20px;
+
+            font-size: var(--f-size-medium);
+            font-weight: 700;
+
+            background-color: transparent;
+
+            border: 1px solid var(--primary-color);
+            border-radius: 25px;
+
+            &:hover {
+                background-color: var(--text-color);
+                span { color: var(--background-color); }                
+            }
+
+            transition: background-color .5s, color .5s;
+        }
+
+        .active, .active:hover {
+            background-color: var(--primary-color);
+            span {
+                color: var(--background-color);
+            }
+        }
+    }
+}

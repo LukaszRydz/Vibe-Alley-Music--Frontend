@@ -1,0 +1,22 @@
+@use './styles/style.scss' as *;
+
+.app {
+    height: 100%;
+    min-height: 100vh;
+
+    background-color: var(--background-color);
+
+    * { font-family: $primary-font; }
+
+    .app_content > * {
+        padding-top: 9.1vh;
+    }
+}
+
+.todo {
+    color: orange;
+    text-shadow: 1px 1px 1px rgb(255, 198, 91);
+
+    font-size: var(--f-size-small);
+    font-weight: 700;
+}

@@ -1,0 +1,139 @@
+.settings-page {    
+    width: 100%;
+    min-height: 92vh;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    
+    .button {
+        max-width: 350px;
+        width: 90vw;
+
+        padding: 1rem 2rem;    
+        
+        color: var(--text-color);
+        font-size: var(--f-size-medium);
+        font-weight: 700;
+
+        background: transparent;
+        
+        border: 2px solid var(--primary-color);
+        border-radius: 50px;
+
+        &:hover {
+            background: var(--primary-color);
+            color: var(--background-color);
+        }
+        
+        &:disabled {
+            background: var(--text-color);
+            color: var(--background-color);
+            
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        &:active {
+            scale: 0.95;
+            opacity: 0.8;
+        }
+    }
+
+    .logout-btn {
+        position: absolute;
+        bottom: 0;
+        
+        height: 4rem;
+        width: 100%;
+        padding: 1rem 2rem;
+
+        color: var(--text-color);
+        font-size: var(--f-size-medium);
+        
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        border-width: 2px 0px 0px 0px;
+
+        &:hover {
+            background: var(--primary-color);
+            color: var(--background-color);
+        }
+    }
+
+    .spotify-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        
+        color: #212121;
+        background-color: #1db954;
+        border-color: #1db954;
+
+        &, * {
+            transition: all 0s !important;
+        }
+
+        &:hover {
+            border-color: var(--primary-color);
+            &, .icon {
+                color: #1db954;
+            }
+        }
+    }
+
+    .change-password-from {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        color: white;
+
+        .input-wrapper {
+            width: 100%;
+            max-width: 450px;
+
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            label {
+                font-size: var(--f-size-medium);
+            }
+
+            input {
+                width: 100%;
+    
+                padding: .3rem .6rem;
+                font-size: var(--f-size-small);
+            }
+    
+            button {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+    }
+
+    .back-link {
+        color: var(--primary-color);
+        font-size: var(--f-size-medium);
+        text-decoration: underline;
+
+        user-select: none;
+        cursor: pointer;
+
+        &:hover {
+            scale: 1.05;
+            font-weight: 700;
+        }
+    }
+}

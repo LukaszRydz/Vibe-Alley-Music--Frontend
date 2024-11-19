@@ -1,0 +1,67 @@
+{
+    "HomePage": {
+        "template-title": "Home Page"
+    },
+    "Navbar": {
+        "btnCart": "Cart",
+        "btnLogin": "Login",
+        "btnAccount": "Account",
+        "btnSearch": "Search"
+    },
+    "Catalog": {
+        "ProductList": {
+            "queryFetching": "Fetching products...",
+            "queryError": "Something went wrong while fetching products.",
+            "listEmpty": "No products found."
+        },
+        "Filter": {
+            "InputSearch": {
+                "searchHeader": "Search",
+                "searchPlaceholder": "Search products..."
+            },
+            "Options": {
+                "header": "Options",
+                "labelAvailable": "Available",
+                "labelSale": "Sale"
+            }
+        }
+    },
+    "ProductCard": {
+        "addToCart": "Add to cart",
+        "soldOut": "Sold out",
+        "fav": "You like it!"
+    },
+    "Auth": {
+        "RegisterForm": {
+            "header": "Register",
+            "email": "Email",
+            "password": "Password",
+            "confirmPassword": "Confirm password",
+            "btnSubmit": "Register",
+            "emailError": "Please enter a valid email address.",
+            "passwordError": "Password must be at least 6 characters long.",
+            "confirmPasswordError": "Passwords do not match."
+        },
+        "SignInForm": {
+            "header": "Login",
+            "email": "Email",
+            "password": "Password",
+            "btnSubmit": "Login",
+            "emailError": "Please enter a valid email address.",
+            "passwordError": "Password must be at least 6 characters long."
+        },
+        "ForgotPasswordForm": {
+            "header": "One-time login",
+            "email": "Email",
+            "getKeyBtn": "Create Key",
+            "loginBtn": "Login",
+            "iHaveKey": "Already have a key? Click here.",
+            "emailError": "Please enter a valid email address.",
+            "keyError": "Please enter a valid key (8 characters).",
+            "key": "Key"
+        },
+        "signUp": "Sign up",
+        "signIn": "Sign in",
+        "forgotPassword": "Forgot password?"
+    }
+}

@@ -1,0 +1,62 @@
+.sort-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+
+    .sort-header {
+        font-size: var(--f-size-big);
+    }
+
+    .options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5vw;
+
+        .option {
+            padding: 3px 20px;
+
+            font-size: var(--f-size-medium);
+            font-weight: 700;
+
+            background-color: transparent;
+
+            border: 1px solid var(--primary-color);
+            border-radius: 25px;
+
+            &:hover {
+                background-color: var(--text-color);
+                span { color: var(--background-color); }                
+            }
+
+            transition: background-color .5s, color .5s;
+        }
+
+        .active, .active:hover {
+            background-color: var(--primary-color);
+            span {
+                color: var(--background-color);
+            }
+        }
+    }
+
+    .order-btn {
+        height: var(--f-size-medium);
+        width: var(--f-size-medium);
+
+        background: none;
+        border: none;
+        border-radius: 50%;
+
+        transform: rotate(180deg);
+
+        .order-icon {
+            height: 100%;
+            width: 100%;
+        }
+
+        .desc {
+            transform: rotate(180deg);
+        }
+    }
+}

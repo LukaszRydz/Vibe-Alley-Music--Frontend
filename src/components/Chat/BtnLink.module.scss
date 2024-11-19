@@ -1,0 +1,27 @@
+.link {
+    cursor: pointer;
+    
+    padding: 0rem .5rem;
+
+    font-weight: bold;
+    word-break: break-all;
+
+    color: var(--chat-color-quaternary);
+
+    background-color: var(--chat-color-secondary);
+    border-radius: 10px;
+
+    .hovered {
+        display: none;
+    }
+
+    &:hover {
+        .hovered {
+            display: contents;
+        }
+
+        .hidden {
+            display: none;
+        }
+    }
+}

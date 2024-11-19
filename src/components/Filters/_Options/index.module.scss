@@ -1,0 +1,45 @@
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .options-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            input, label {
+                cursor: pointer;
+                user-select: none;
+            }
+
+            label {
+                font-size: var(--f-size-medium);
+                font-weight: 500;
+            }
+
+            input[type="checkbox"] {
+                transform: scale(1.4);
+                filter: grayscale(1);
+
+                // transparent background
+                &::before {
+                    background-color: blue !important;
+                }
+            }
+
+            @media screen and (min-width: 2500px) {
+                gap: 15px;
+                
+                input[type="checkbox"] {
+                    transform: scale(2.5);
+                }
+            }
+        }
+    }
+}

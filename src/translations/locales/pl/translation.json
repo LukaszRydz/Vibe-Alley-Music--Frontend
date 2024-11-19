@@ -1,0 +1,67 @@
+{
+    "HomePage": {
+        "template-title": "Strona główna"
+    },
+    "Navbar": {
+        "btnCart": "Koszyk",
+        "btnLogin": "Zaloguj",
+        "btnAccount": "Konto",
+        "btnSearch": "Szukaj"
+    },
+    "Catalog": {
+        "ProductList": {
+            "queryFetching": "Pobieranie produktów...",
+            "queryError": "Wystąpił błąd podczas pobierania produktów.",
+
+            "listEmpty": "Nie znaleziono produktów."
+        },
+        "Filter": {
+            "InputSearch": {
+                "searchHeader": "Szukaj",
+                "searchPlaceholder": "Szukaj produktów..."
+            },
+            "Options": {
+                "header": "Opcje",
+                "labelAvailable": "Dostępne",
+                "labelSale": "Wyprzedaż"
+            }
+        }
+    },
+    "ProductCard": {
+        "addToCart": "Dodaj do koszyka",
+        "soldOut": "Wyprzedane",
+        "fav": "Lubisz to!"
+    },
+    "Auth": {
+        "RegisterForm": {
+            "header": "Rejestracja",
+            "email": "Email",
+            "password": "Hasło",
+            "confirmPassword": "Potwierdź hasło",
+            "btnSubmit": "Zarejestruj się",     
+            "emailError": "Wprowadź poprawny adres email.",
+            "passwordError": "Hasło musi mieć co najmniej 6 znaków."
+        },
+        "SignInForm": {
+            "header": "Logowanie",
+            "email": "Email",
+            "password": "Hasło",
+            "btnSubmit": "Zaloguj",
+            "emailError": "Wprowadź poprawny adres email.",
+            "passwordError": "Hasło musi mieć co najmniej 6 znaków."
+        },
+        "ForgotPasswordForm": {
+            "header": "Jednorazowe logowanie",
+            "email": "Email",
+            "getKeyBtn": "Stwórz klucz",
+            "loginBtn": "Zaloguj",
+            "iHaveKey": "Masz już klucz? Kliknij tutaj.",
+            "emailError": "Wprowadź poprawny adres email.",
+            "keyError": "Wprowadź poprawny klucz (8 znaków).",
+            "key": "Klucz"
+        },
+        "signUp": "Zarejestruj się",
+        "signIn": "Zaloguj się",
+        "forgotPassword": "Zapomniałeś hasła?"
+    }
+}

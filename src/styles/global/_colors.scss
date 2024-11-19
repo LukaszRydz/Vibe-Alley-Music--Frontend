@@ -1,0 +1,71 @@
+// Dark
+$primary-color-dark: ghostwhite;
+$secondary-color-dark: rgb(206, 206, 206);
+$tertiary-color-dark: rgb(0, 177, 184);
+$text-color-dark: ghostwhite;
+$background-color-dark: #222831;
+$hover-color-dark: rgba(145, 145, 145, 0.349);
+$hover-color-dark-2: rgb(0, 217, 224);
+$card-border-color-dark: transparent;
+
+// Light
+$primary-color-light: rgb(36, 36, 36);
+$secondary-color-light: rgb(0, 0, 0);
+$tertiary-color-light: rgb(134, 5, 5);
+$text-color-light: rgb(0, 0, 0);
+$background-color-light: rgb(194, 194, 194);
+$hover-color-light: rgba(136, 136, 136, 0.568);
+$hover-color-light-2: rgb(240, 34, 102);
+$card-border-color-light: rgb(36, 36, 36);
+
+$product-page-text-color: white;
+$product-page-background-color: rgba(0, 0, 0, 0.281);
+$product-page-hover-color: rgba(156, 156, 156, 0.336);
+$product-page-hover-color-2: rgba(0, 0, 0, 0.486);
+
+[data-theme="dark"] {
+    --primary-color: #{$primary-color-dark};
+    --secondary-color: #{$secondary-color-dark};
+    --tertiary-color: #{$tertiary-color-dark};
+    --text-color: #{$text-color-dark};
+    --background-color: #{$background-color-dark};
+    --hover-color: #{$hover-color-dark};
+    --hover-color-2: #{$hover-color-dark-2};
+    --card-border-color: #{$card-border-color-dark};
+
+    --product-page-text-color: #{$product-page-text-color};
+    --product-page-background-color: #{$product-page-background-color};
+    --product-page-hover-color-1: #{$product-page-hover-color};
+    --product-page-hover-color-2: #{$product-page-hover-color-2};
+
+
+    --chat-color-primary: #0b0c0c71;
+    --chat-color-secondary: #43474d8c;
+    --chat-color-tertiary: #0fd6e0c5;
+    --chat-color-quaternary: #EEEEEE;
+}
+
+[data-theme="light"] {
+    --primary-color: #{$primary-color-light};
+    --secondary-color: #{$secondary-color-light};
+    --tertiary-color: #{$tertiary-color-light};
+    --text-color: #{$text-color-light};
+    --background-color: #{$background-color-light};
+    --hover-color: #{$hover-color-light};
+    --hover-color-2: #{$hover-color-light-2};
+    --card-border-color: #{$card-border-color-light};
+
+    --product-page-text-color: #{$product-page-text-color};
+    --product-page-background-color: #{$product-page-background-color};
+    --product-page-hover-color-1: #{$product-page-hover-color};
+    --product-page-hover-color-2: #{$product-page-hover-color-2};
+
+    --chat-color-primary: #0b0c0c71;
+    --chat-color-secondary: #43474d59;
+    --chat-color-tertiary: #00acb5c5;
+    --chat-color-quaternary: #EEEEEE;
+}
+
+*:not(#navbar) {
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}

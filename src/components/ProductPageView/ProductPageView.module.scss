@@ -1,0 +1,281 @@
+:root {
+    --clamp-val: clamp(300px, 40.625vw, 1000px)
+}
+
+.product-page {
+    position: relative;
+    height: 100%;
+
+    padding-bottom: 6vh;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    color: var(--product-page-text-color);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.562);
+        backdrop-filter: blur(25px);
+    }
+
+    & > * {
+        position: relative;
+    }
+
+    .product-details {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .landing {
+        height: 92vh;
+        padding: 2rem;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 4vw;
+
+        .discount {
+            margin-left: .5rem;
+
+            font-size: var(--f-size-small);
+            font-weight: 500;
+            color: var(--product-page-text-color);
+        }
+
+        .cover-wrapper {
+            height: var(--clamp-val);
+            width: 43vw;
+            min-width: 300px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            
+            .cover {
+                height: var(--clamp-val);
+                width: var(--clamp-val);
+                -webkit-user-drag: none;
+            }
+
+        }
+
+        .info-wrapper {
+            height: var(--clamp-val);
+            width: 43vw;
+
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+
+            
+            .title { font-weight: 700; }
+            .title, .price { font-size: var(--f-size-big); }
+            .price, .artists { font-weight: 500; }
+
+            .artists {
+                .artist {
+                    font-size: var(--f-size-medium);
+                    text-wrap: wrap;   
+                    opacity: .8;
+
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .released {
+                font-size: var(--f-size-small);
+                font-weight: 500;
+            }
+
+            .controls {
+                width: 100%;
+                margin-top: auto;
+
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+
+                user-select: none;
+
+                .button {
+                    width: 50%;
+                    padding: .6rem 0.6rem;
+                    
+                    color: var(--product-page-text-color);
+                    font-size: var(--f-size-big);
+                    font-weight: 500;
+                    
+                    background-color: var(--product-page-background-color);
+                    
+                    border: 4px solid var(--product-page-text-color);
+                    border-radius: 5px;
+
+                    &:hover {
+                        background-color: var(--product-page-hover-color-1);
+                    }
+
+                    &:disabled {
+                        background-color: var(--product-page-hover-color-1);
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
+    }
+
+    .header {
+        color: var(--product-page-text-color);
+        font-size: var(--f-size-big);
+
+        margin-bottom: 1rem;
+    }
+
+    .spotify-iframe {
+        width: 90%;
+        height: 600px;
+        margin: 0 auto;
+        
+        .iframe-container {
+            position: relative;
+            width: 90vw;
+
+            iframe {
+                position: absolute;
+                z-index: 1;
+
+                border: none;
+            }
+    
+            .iframe-placeholder {
+                width: 100%;
+                height: 550px;
+                margin: 0 auto;
+    
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+    
+                font-size: var(--f-size-big);
+    
+                background-color: #212121;
+    
+                border-radius: 10px;
+    
+                svg {
+                    fill: #1db954;
+                }
+            }
+    
+            .iframe-warning {
+                position: absolute;
+                z-index: 2;
+    
+                height: 550px;
+                width: 100%;
+                padding: 1rem;
+    
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                gap: 1rem;
+
+                background-color: rgba(0, 0, 0, 0.507);
+                backdrop-filter: blur(10px);
+
+                border-radius: 10px;
+
+                span {
+                    max-width: 550px;
+
+                    font-size: var(--f-size-medium);
+                    font-weight: 500;
+                    color: var(--product-page-text-color);
+                }
+
+                svg {
+                    height: 64px;
+                    width: 64px;
+
+                    fill: #d5de00;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product-page {
+        .landing {
+            width: 100vw;
+            height: 92vh;
+            padding: 1rem;
+    
+            justify-content: center;
+            gap: 3vw;
+    
+    
+            .cover-wrapper {
+                width: 100%;
+                min-width: 280px;
+            }
+    
+            .info-wrapper {
+                width: 90%;
+                
+                flex-direction: column;
+                gap: .8rem;    
+ 
+                .artists {
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+                
+                .controls {
+                    margin-top: 0;
+                    flex-direction: column;
+                    gap: 1rem;
+    
+                    .button {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .product-page {
+        .landing {    
+            .cover-wrapper {
+                width: 200px;
+                height: 200px;
+                min-width: 280px;
+
+                .cover {
+                    height: 200px;
+                    width: 200px;
+                }
+            }
+        }
+    }
+}

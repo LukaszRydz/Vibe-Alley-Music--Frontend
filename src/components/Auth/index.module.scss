@@ -1,0 +1,112 @@
+.auth {
+    height: 92vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    *:not(input) {
+        color: var(--text-color)
+        ;
+    }
+
+    .auth-form {
+        height: fit-content;
+        width: 100vw;
+        min-width: 300px;
+        max-width: 600px;
+        padding: 3rem 3rem 1rem 3rem;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    
+        .header {
+            font-size: var(--f-size-big);
+        }
+    
+        .input-group {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+    
+            label {
+                font-size: var(--f-size-medium);
+                font-weight: 500;
+            }
+    
+            input {
+                width: 100%;
+                padding: 0.4rem;
+                
+                font-size: var(--f-size-small);
+                font-weight: 500;
+
+                border: 2px solid var(--primary-color);
+                border-radius: 5px;
+    
+                outline: none;
+            }
+        }
+
+        .shop-key-input__btn {
+            font-size: var(--f-size-small);
+            margin-left: auto;
+            cursor: pointer;
+            text-decoration: underline;
+        }   
+
+        .submit-button {
+            width: 80%;
+            padding: 0.4rem;
+            
+            font-size: var(--f-size-medium);
+            font-weight: 500;
+            
+            background-color: var(--background-color);
+            
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            
+            &:hover {
+                color: var(--background-color);
+                background-color: var(--primary-color);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                background-color: var(--primary-color);
+                color: var(--background-color);
+                opacity: 0.3;
+            }
+
+            transition: color 0.3s, background-color 0.3s;
+        }
+    }
+
+    .auth-link {
+        padding: 0.5rem 1.5rem;
+        margin: .15rem 0;
+    
+        font-size: var(--f-size-medium);
+        font-weight: 500;
+        text-decoration: underline;
+    
+        border-radius: 25px;
+    
+        user-select: none;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--background-color);
+            font-weight: 700;
+            background-color: var(--primary-color);
+        }
+    }
+}

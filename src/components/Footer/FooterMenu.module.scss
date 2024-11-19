@@ -1,0 +1,33 @@
+.footer-menu {
+    position: relative;
+    width: 100%;
+
+    font-family: var(--primary-font);
+
+    .footer-menu__list {
+        padding: 1rem;
+        padding-bottom: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    
+        .footer-menu__item {
+            font-size: var(--f-size-small);
+            
+            &:hover {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .footer-menu {
+        .footer-menu__list {
+            gap: 1rem;
+        }
+    }
+    
+}
