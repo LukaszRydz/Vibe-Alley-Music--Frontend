@@ -10,7 +10,7 @@ type IsOnlineResponse = {
 
 export const isOnline = async (): Promise<IsOnlineResponse> => {
     try {
-        const res = await axios.get(`${Host.BOT}/is-online`, { withCredentials: true });
+        const res = await axios.get(`${Host.BOT}/is-online`, { withCredentials: true, headers: { "ngrok-skip-browser-warning": true } });
         return { chatStatus: res.status === 200, model_name: res.data.name };
     } catch (e) {
         return { chatStatus: false, model_name: '' };
@@ -19,7 +19,9 @@ export const isOnline = async (): Promise<IsOnlineResponse> => {
 
 export const sendMessage = async (message: string) => {
     try {
-        const res = await axios.post(`${Host.BOT}/chat`, { message, withCredentials: true });
+        const res = await axios.post(`${Host.BOT}/chat`, { message, withCredentials: true }, {
+            headers: { "ngrok-skip-browser-warning": true }
+        });
         console.log(res.data);
         return res.data;
     }
@@ -29,7 +31,9 @@ export const sendMessage = async (message: string) => {
 }
 
 export const sendReport = async (body: ISendReportBody) => {
-    await axios.post(`${Host.BOT}/report`, body) 
+    await axios.post(`${Host.BOT}/report`, body, {
+        headers: { "ngrok-skip-browser-warning": true }
+    }) 
     // TODO
 }
 

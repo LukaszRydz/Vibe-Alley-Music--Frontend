@@ -13,6 +13,8 @@ export const register = async (email: string, password: string, cpassword: strin
             email,
             password,
             cpassword
+        }, {
+            headers: { "ngrok-skip-browser-warning": true }
         })
 
         if (response.status !== 201 && response.status !== 200) {
@@ -30,6 +32,8 @@ export const signIn = async (email: string, password: string) => {
         const response = await axios.post(`${Host.CLIENT}/auth/login`, {
             email,
             password
+        }, {
+            headers: { "ngrok-skip-browser-warning": true }
         })
 
         if (response.status !== 200) {
@@ -49,6 +53,8 @@ export const changePassword = async (newPassword: string, cNewPassword: string) 
         const response = await axios.patch(`${Host.CLIENT}/account/change-password`, {
             newPassword,
             cNewPassword
+        }, {
+            headers: { "ngrok-skip-browser-warning": true }
         })
 
         if (response.status !== 200) {
@@ -66,6 +72,8 @@ export const oneTimeLogin = async (email: string, key: string) => {
         const response = await axios.post(`${Host.CLIENT}/auth/one-time-login`, {
             email,
             key
+        }, {
+            headers: { "ngrok-skip-browser-warning": true }
         })
 
         if (response.status !== 200) {
@@ -88,6 +96,8 @@ export const getOneTimeLoginKey = async (email: string) => {
     try {
         const response = await axios.post(`${Host.CLIENT}/auth/one-time-login-key`, {
             email
+        }, {
+            headers: { "ngrok-skip-browser-warning": true }
         })
 
         if (response.status !== 200) {
@@ -102,7 +112,9 @@ export const getOneTimeLoginKey = async (email: string) => {
 
 export const getAccount = async () => {
     try {
-        const response = await axios.get(`${Host.CLIENT}/account`)
+        const response = await axios.get(`${Host.CLIENT}/account`, {
+            headers: { "ngrok-skip-browser-warning": true }
+        })
 
         if (response.status !== 200) {
             return { error: 'Error during auto login' }
@@ -117,7 +129,9 @@ export const getAccount = async () => {
 
 export const removeCookie = async () => {
     try {
-        const response = await axios.get(`${Host.CLIENT}/auth/logout`)
+        const response = await axios.get(`${Host.CLIENT}/auth/logout`, {
+            headers: { "ngrok-skip-browser-warning": true }
+        })
         if (response.status !== 200) {
             return { error: 'Error during logout' }
         }

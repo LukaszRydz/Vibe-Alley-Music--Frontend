@@ -6,7 +6,8 @@ import { Host } from '../../utils/variables';
 export const fetchProductsInfo = async (filters: IFilters, currentPage: number, limit?: 10 | number) => {
     try {
         const response = await axios.get(_fetchProductsInfo + `?page=${currentPage}&limit=${limit}`, {
-            params: filters
+            params: filters,
+            headers: { "ngrok-skip-browser-warning": true }
         })
         if (response.status !== 200) {
             return { error: 'Error fetching products' }
@@ -21,7 +22,8 @@ export const fetchProductsInfo = async (filters: IFilters, currentPage: number, 
 export const fetchProductsDetails = async (ids: string[]) => {
     try {
         const response = await axios.get(_fetchProductsDetails, {
-            params: { ids: ids }
+            params: { ids: ids },
+            headers: { "ngrok-skip-browser-warning": true }
         })
         if (response.status !== 200) return { error: 'Error fetching products Info' }
         
@@ -34,7 +36,9 @@ export const fetchProductsDetails = async (ids: string[]) => {
 export const _request_addProductToCart = async (items: ICart[]) => {
     try {
         const response = await axios.post(`${Host.CLIENT}/account/add-to-cart`, {
-            products: items
+            products: items,
+        }, {
+            headers: { "ngrok-skip-browser-warning": true }
         })
 
         if (response.status !== 200) return { error: 'Error adding product to cart' }
@@ -51,6 +55,8 @@ export const _request_updateProductInCart = async (id: string, quantity: number)
         const response = await axios.patch(`${Host.CLIENT}/account/update-cart`, {
             id: id,
             quantity: quantity
+        }, {
+            headers: { "ngrok-skip-browser-warning": true }
         })
 
         if (response.status !== 200) return { error: 'Error updating product in cart' }
@@ -65,7 +71,8 @@ export const _request_updateProductInCart = async (id: string, quantity: number)
 export const _request_removeProductFromCart = async (id: string) => {
     try {
         const response = await axios.delete(`${Host.CLIENT}/account/remove-from-cart`, {
-            params: { id: id }
+            params: { id: id },
+            headers: { "ngrok-skip-browser-warning": true }
         })
 
         if (response.status !== 200) return { error: 'Error removing product from cart' }
@@ -79,7 +86,9 @@ export const _request_removeProductFromCart = async (id: string) => {
 
 export const _request_clear_cart = async () => {
     try {
-        const response = await axios.delete(`${Host.CLIENT}/account/clear-cart`)
+        const response = await axios.delete(`${Host.CLIENT}/account/clear-cart`, {
+            headers: { "ngrok-skip-browser-warning": true }
+        })
 
         if (response.status !== 200) return { error: 'Error clearing cart' }
         return response.data;
@@ -92,7 +101,8 @@ export const _request_clear_cart = async () => {
 export const getCartProductsInfo = async (cart: ICart[]) => {
     try {
         const response = await axios.get(`${Host.SHOP}/client/product/cart`, {
-            params: { cartItems: cart }
+            params: { cartItems: cart },
+            headers: { "ngrok-skip-browser-warning": true }
         })
 
         if (response.status !== 200) return { error: 'Error fetching cart items' }

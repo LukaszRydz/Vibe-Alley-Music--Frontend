@@ -6,6 +6,8 @@ export const sendContactMessage = async (email: string, name: string, message: s
         email,
         name,
         message
+    }, {
+        headers: { "ngrok-skip-browser-warning": true }
     });
     
     if (response.status !== 200) {

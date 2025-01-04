@@ -31,7 +31,7 @@ export const payment = async (products: ICartProductInfo[], checkoutData: ICheck
         }
     })
 
-    const headers = { 'Content-Type': 'application/json' };
+    const headers = { 'Content-Type': 'application/json' , "ngrok-skip-browser-warning": true };
     
     const res = await axios.post(`${Host.SHOP}/payment/create-checkout-session`,
         JSON.stringify({
