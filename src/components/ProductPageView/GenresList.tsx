@@ -8,7 +8,7 @@ export const GenresList = ({ genres }: { genres: string[] }) => {
 
     return (
         <div className={styles["genres-list"]}>
-            <h1 className={styles.header}>Lista gatunków:</h1>
+            <h1 className={styles.header}>Genres list:</h1>
             <div className={styles["button-container"]}>
                 {genres.map((genre) => (
                     <button key={genre} className={styles["genre-button"]} onClick={() => click(genre)}>

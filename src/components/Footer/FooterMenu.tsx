@@ -13,18 +13,18 @@ export const FooterMenu = ({location} : {location: string}) => {
             <ul className={styles["footer-menu__list"]}>
                 <li className={styles["footer-menu__item"]}>
                     <a href="#" onClick={() => handleNavigate("/")}>
-                        Strona główna
+                        Home Page
                     </a>
                 </li>
                 <li className={styles["footer-menu__item"]}>
-                    <a href="#" onClick={() => handleNavigate("/catalog")}>Produkty</a>
+                    <a href="#" onClick={() => handleNavigate("/catalog")}>Products</a>
                 </li>
                 <li className={styles["footer-menu__item"]}>
-                    <a href="#" onClick={() => handleNavigate("/contact")}>Kontakt</a>
+                    <a href="#" onClick={() => handleNavigate("/contact")}>Contact</a>
                 </li>
                 <li className={styles["footer-menu__item"]}>
                     <a href="#" onClick={() => handleNavigate("/policy")}>
-                        Polityka
+                        Policy
                     </a>
                 </li>
             </ul>

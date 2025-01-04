@@ -13,7 +13,7 @@ i18n
             en: { translation: enTranslation },
             pl: { translation: plTranslation }
         },
-        lng: 'pl',
+        lng: navigator.language.split(/[-_]/)[0] === 'pl' ? 'pl' : 'en',
         interpolation: {
             escapeValue: false
         }

@@ -6,10 +6,11 @@
         "btnCart": "Cart",
         "btnLogin": "Login",
         "btnAccount": "Account",
-        "btnSearch": "Search"
+        "btnSearch": "Search",
+        "btnCatalog": "Go to catalog"
     },
     "Catalog": {
-        "ProductList": {
+        "ProductExplorer": {
             "queryFetching": "Fetching products...",
             "queryError": "Something went wrong while fetching products.",
             "listEmpty": "No products found."
@@ -63,5 +64,17 @@
         "signUp": "Sign up",
         "signIn": "Sign in",
         "forgotPassword": "Forgot password?"
+    },
+    "Orders": {
+        "returnInfo": "Each order includes a return form and a detailed return instruction sheet to ensure a quick and hassle-free return process. Please review them upon receiving your package.",
+        "delivery": "Delivery",
+        "payment": "Payment",
+        "total": "Total",
+        "id": "Order ID",
+        "title": "Title",
+        "createdAt": "Created at"
+    },
+    "ChatBot": {
+        "responseReportInfo": "Virtual assistant is still in development. Please report any issues to the support team by clicking the button below. This report is anonymous!"
     }
 }

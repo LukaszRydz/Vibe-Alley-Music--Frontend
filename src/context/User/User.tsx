@@ -3,9 +3,11 @@ import { ICart, IUser } from "../../interfaces/interfaces";
 import { getAccount, removeCookie } from "../../services/auth/auth";
 
 import { CartOperations } from "./cartOperations";
+import { _request_clear_cart } from "../../services/shop/products";
 
 export const UserContext = createContext<{
     user: IUser | null;
+    spotifyFavAlbums: string[];
     setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
     cart: ICart[];
     setCart: React.Dispatch<React.SetStateAction<ICart[]>>;
@@ -13,12 +15,14 @@ export const UserContext = createContext<{
     updateQuantityInCart: (item: ICart) => void;
     removeAlbumFromCart: (id: string) => void;
     removeUserInformation: () => void;
+    clearCart: () => void;
     logOut: () => void;
 } | null>(null);
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     const [user, setUser] = useState<IUser | null>(null);
     const [cart, setCart] = useState<ICart[]>([]);
+    const spotifyFavAlbums = user?.spotify?.favAlbums.titles || [];
 
     useEffect(() => {
         const autoLogin = JSON.parse(localStorage.getItem("auto-login") || "false");
@@ -44,6 +48,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
     const addAlbumToCart = async (item: ICart) => {
         if (!item.id || !item.quantity) return;
+        if (CartOperations.countItems(cart) >= 20) return;
 
         if (user?._id) {
             await CartOperations.addInDatabase([item]).then((data) => setCart(data));
@@ -54,6 +59,11 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
     const updateQuantityInCart = (item: ICart) => {
         if (!item.id || !item.quantity) return;
+
+        const itemInCart = cart.find((cartItem) => cartItem.id === item.id);
+        if (!itemInCart && CartOperations.countItems(cart) >= 20) return;
+        else if (itemInCart && itemInCart.quantity < item.quantity && CartOperations.countItems(cart) >= 20) return;
+
         if (user?._id) {
             CartOperations.updateInDatabase(item).then((data) => !data.error && setCart(data));
         } else {
@@ -70,6 +80,11 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         }
     };
 
+    const clearCart = () => {
+        CartOperations.setLocalStorage([]);
+        _request_clear_cart().then(() => setCart([]));
+    }
+
     const removeUserInformation = () => {
         setUser(null);
         setCart([]);
@@ -81,7 +96,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     return (
-        <UserContext.Provider value={{ user, setUser, cart, setCart, addAlbumToCart, updateQuantityInCart, removeAlbumFromCart, removeUserInformation, logOut }}>
+        <UserContext.Provider value={{ user, spotifyFavAlbums, setUser, cart, clearCart, setCart, addAlbumToCart, updateQuantityInCart, removeAlbumFromCart, removeUserInformation, logOut }}>
             {children}
         </UserContext.Provider>
     );

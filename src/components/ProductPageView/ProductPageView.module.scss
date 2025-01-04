@@ -67,6 +67,8 @@
                 height: var(--clamp-val);
                 width: var(--clamp-val);
                 -webkit-user-drag: none;
+
+                border-radius: 7px;
             }
 
         }
@@ -85,6 +87,9 @@
             .price, .artists { font-weight: 500; }
 
             .artists {
+                -webkit-line-clamp: 3;
+                text-overflow: ellipsis;   
+
                 .artist {
                     font-size: var(--f-size-medium);
                     text-wrap: wrap;   
@@ -228,9 +233,7 @@
             height: 92vh;
             padding: 1rem;
     
-            justify-content: center;
-            gap: 3vw;
-    
+            gap: 3rem;
     
             .cover-wrapper {
                 width: 100%;
@@ -238,6 +241,7 @@
             }
     
             .info-wrapper {
+                height: 100%;
                 width: 90%;
                 
                 flex-direction: column;

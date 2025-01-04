@@ -3,9 +3,9 @@ import { _fetchProductsInfo, _fetchProductsDetails } from '../endpoints'
 import { ICart, IFilters } from '../../interfaces/interfaces';
 import { Host } from '../../utils/variables';
 
-export const fetchProductsInfo = async (filters: IFilters, currentPage: number) => {
+export const fetchProductsInfo = async (filters: IFilters, currentPage: number, limit?: 10 | number) => {
     try {
-        const response = await axios.get(_fetchProductsInfo + `?page=${currentPage}&limit=10`, {
+        const response = await axios.get(_fetchProductsInfo + `?page=${currentPage}&limit=${limit}`, {
             params: filters
         })
         if (response.status !== 200) {
@@ -74,6 +74,18 @@ export const _request_removeProductFromCart = async (id: string) => {
     } catch (error) {
         console.error(error);
         return { error: 'Error removing product from cart' }
+    }
+}
+
+export const _request_clear_cart = async () => {
+    try {
+        const response = await axios.delete(`${Host.CLIENT}/account/clear-cart`)
+
+        if (response.status !== 200) return { error: 'Error clearing cart' }
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        return { error: 'Error clearing cart' }
     }
 }
 

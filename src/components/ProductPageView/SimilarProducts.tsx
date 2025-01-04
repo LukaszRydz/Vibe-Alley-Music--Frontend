@@ -11,9 +11,6 @@ import { ProductCard } from "../ProductCard/ProductCard";
 import styles from "./ProductPageView.module.scss";
 import "./SimilarProducts.scss";
 
-import 'swiper/css';
-import 'swiper/css/scrollbar';
-
 export const SimilarProducts = ({ genres }: { genres: string[] }) => {
     const [products, setProducts] = useState<IProductInfo[]>([]);
 
@@ -33,7 +30,7 @@ export const SimilarProducts = ({ genres }: { genres: string[] }) => {
 
     return (
         <div className="similar-wrapper">
-            <h1 className={styles.header}>Podobne:</h1>
+            <h1 className={styles.header}>Similar:</h1>
             <Swiper
                 spaceBetween={15}
                 scrollbar={{ draggable: true }}

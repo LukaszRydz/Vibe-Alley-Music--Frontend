@@ -1,4 +1,4 @@
-import { FaRobot } from '@react-icons/all-files/fa/FaRobot';
+import { FaRobot } from 'react-icons/fa';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import gsap from 'gsap';

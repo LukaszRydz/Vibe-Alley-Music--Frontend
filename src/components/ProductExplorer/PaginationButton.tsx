@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { CatalogContext } from '../../context/CatalogContext';
 
-import styles from './ProductList.module.scss'
+import styles from './ProductExplorer.module.scss'
 
 export const PaginationButton = ({ page, disabled }: {page: number, disabled: boolean}) => {
     const { pageInfo, setPageInfo } = useContext(CatalogContext)!;

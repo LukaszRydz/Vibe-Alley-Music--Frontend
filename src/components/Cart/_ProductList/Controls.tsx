@@ -1,6 +1,5 @@
-import { MdDeleteForever } from "@react-icons/all-files/md/MdDeleteForever";
-import { FaPlus } from "@react-icons/all-files/fa/FaPlus";
-import { FaMinus } from "@react-icons/all-files/fa/FaMinus";
+import { MdDeleteForever } from "react-icons/md";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 import { useContext } from "react";
 import { UserContext } from "../../../context/User/User";

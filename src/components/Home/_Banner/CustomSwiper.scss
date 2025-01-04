@@ -1,0 +1,56 @@
+.bannerSwiper {
+    height: 100%;
+    width: 100%;
+
+    box-sizing: border-box;
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-pagination {
+        width: 20vw !important;
+
+        gap: 1rem;
+
+        justify-content: center;
+        align-items: center;
+
+        background: transparent;
+        
+        .swiper-pagination-bullet {
+            border-radius: 0%;
+            
+            height: var(--f-size-big) !important;
+            max-height: 1.8rem;
+            width: var(--f-size-big) !important;
+            max-width: 1.8rem;
+
+            margin: .25rem;
+            padding: 0 .25rem;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+
+            background-color: black;
+            color: var(--text-color);
+            
+            border: 2px solid black;
+    
+            span {
+                display: none;
+                font-size: var(--f-size-small);
+            }
+        }
+
+        .swiper-pagination-bullet-active {
+            scale: 1;
+
+            border: 2px solid white;
+        }
+    }
+}

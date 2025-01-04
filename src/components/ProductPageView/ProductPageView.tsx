@@ -13,6 +13,10 @@ export const ProductPageView = ({productInfo} : {productInfo : IProductDetails})
     const { images, title, price, discount, genres, artists, spotifyAlbumId, _id, quantity, releaseDate } = productInfo
     
     useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    useEffect(() => {
         const body = document.querySelector('body')!
 
         // background img

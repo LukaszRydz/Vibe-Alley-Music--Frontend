@@ -1,4 +1,4 @@
-import { FaMicrophone } from "@react-icons/all-files/fa/FaMicrophone";
+import { FaMicrophone } from "react-icons/fa";
 
 import styles from "./Chat.module.scss";
 

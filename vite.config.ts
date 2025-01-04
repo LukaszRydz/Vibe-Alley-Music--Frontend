@@ -5,6 +5,10 @@ import { ViteMinifyPlugin } from 'vite-plugin-minify';
 
 export default defineConfig({
   plugins: [react(), ViteMinifyPlugin({})],
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+  },
   build: {
     minify: 'terser',
     cssMinify: 'lightningcss',

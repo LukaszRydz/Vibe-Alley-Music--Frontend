@@ -1,12 +1,11 @@
-import { useNavigate } from "react-router-dom"
+import { Home } from "../components/Home/Home";
 
-export const HomePage = () => {
-    const navigate = useNavigate();
-    
+import styles from './Pages.module.scss'
+
+export const HomePage = () => {    
     return (
-        <div>
-            <button onClick={() => navigate('/catalog')}>Catalog</button>
-            <span className='todo'>Create main page</span>
+        <div className={`${styles.page} ${styles.home}`}>
+            <Home />
         </div>
     )
 }

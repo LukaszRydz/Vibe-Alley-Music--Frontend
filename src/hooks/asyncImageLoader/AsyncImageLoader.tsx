@@ -38,11 +38,12 @@ export const AsyncImageLoader: React.FC<AsyncImageLoaderProps> = ({ src, classNa
         );
     }
 
-    return <img src={src} className={className} alt={alt} loading="lazy" />;
+    return <img src={src} className={`${className}`} alt={alt} loading="lazy" />;
 };
 
 interface AsyncImageLoaderProps {
     src: string;
     className: string;
     alt?: string;
+    isOld?: boolean;
 }

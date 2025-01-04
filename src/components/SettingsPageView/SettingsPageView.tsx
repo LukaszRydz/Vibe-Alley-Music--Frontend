@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom'
 import { LogoutBtn } from './LogoutBtn'
 import { SpotifyBtn } from './SpotifyBtn'
 import { ChangePasswordBtn } from './ChangePasswordBtn'
+import { ChangePasswordForm } from './ChangePasswordForm'
 
 import styles from './SettingsPageView.module.scss'
-import { ChangePasswordForm } from './ChangePasswordForm'
 
 export const SettingsPageView = () => {
     const { user, logOut } = useContext(UserContext)!
@@ -26,7 +26,7 @@ export const SettingsPageView = () => {
         } else {
             return (
                 <>
-                    <span className='todo'>Add the ability to check order history.</span>
+                    <button onClick={() => navigate('/orders')} className={styles.button}>Orders</button>
                     <ChangePasswordBtn setChangePassOpened={setChangePassOpened}/>
                     <SpotifyBtn />
                     <LogoutBtn logOut={logOut} />

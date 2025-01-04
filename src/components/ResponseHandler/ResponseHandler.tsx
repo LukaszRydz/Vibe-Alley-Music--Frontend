@@ -1,11 +1,10 @@
-import axios from 'axios';
-import { useContext, useEffect } from 'react';
-import { UserContext } from '../../context/User/User';
-import { toast, ToastContainer } from 'react-toastify';
+import axios from "axios";
+import { useContext, useEffect } from "react";
+import { UserContext } from "../../context/User/User";
+import { toast, ToastContainer } from "react-toastify";
 
-import './ResponseHandler.scss'
-import 'react-toastify/dist/ReactToastify.css';
-
+import "./ResponseHandler.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ResponseHandler = () => {
     const { removeUserInformation } = useContext(UserContext)!;
@@ -13,12 +12,12 @@ export const ResponseHandler = () => {
     useEffect(() => {
         const responseInterceptor = axios.interceptors.response.use(
             (res) => {
-                if (res.headers['music-store-cookie_deleted'] === "true") {
+                if (res.headers["music-store-cookie_deleted"] === "true") {
                     removeUserInformation();
                     toast.info("Your session has expired, you have been logged out.");
                 }
 
-                if (res.data.showSuccess == 'true' || res.data.showSuccess == true) {
+                if (res.data.showSuccess == "true" || res.data.showSuccess == true) {
                     if (res.data?.message) {
                         toast.success(res.data.message);
                     } else {
@@ -31,30 +30,32 @@ export const ResponseHandler = () => {
             (error) => {
                 if (error.code === "ERR_NETWORK") {
                     toast.error(
-                        <>
-                            <span>{`Server ${recognizeSender(error.config.url)} error`}</span><br />
-                            <hr style={{ width: "100%", color: '#e74c3c', border: ".5px solid", margin: ".3rem 0" }} />
+                        <div key={Math.random()}>
+                            <span>{`Server ${recognizeSender(error.config.url)} error`}</span>
+                            <br />
+                            <hr style={{ width: "100%", color: "#e74c3c", border: ".5px solid", margin: ".3rem 0" }} />
                             <span>{`Server is not responding`}</span>
-                        </>
+                        </div>
                     );
                 } else {
                     const message = error.response?.data?.error || error.message || "Unknown error occurred";
                     toast.error(
-                        <>
-                            <span>{`Server ${recognizeSender(error.config.url)} error`}</span><br />
-                            <hr style={{ width: "100%", color: '#e74c3c', border: ".5px solid", margin: ".3rem 0" }} />
+                        <div key={Math.random()}>
+                            <span>{`Server ${recognizeSender(error.config.url)} error`}</span>
+                            <br />
+                            <hr style={{ width: "100%", color: "#e74c3c", border: ".5px solid", margin: ".3rem 0" }} />
                             <span>{message}</span>
-                        </>
+                        </div>
                     );
                 }
 
-                if (error.response?.headers['music-store-cookie_deleted'] === "true") {
+                if (error.response?.headers["music-store-cookie_deleted"] === "true") {
                     removeUserInformation();
                     toast.info("Your session has expired, you have been logged out.");
                 }
 
                 return Promise.reject(error);
-            },
+            }
         );
 
         return () => axios.interceptors.response.eject(responseInterceptor);
@@ -71,24 +72,25 @@ export const ResponseHandler = () => {
             case "8080":
                 return "Client";
             case "8050":
-                return "Shop"
+                return "Shop";
             default:
                 return url;
         }
-    }
+    };
 
     return (
         <>
-            <ToastContainer 
-                position="top-right" 
+            <ToastContainer
+                position="top-right"
                 theme="dark"
                 newestOnTop={true}
-                autoClose={5000} 
-                hideProgressBar={false} 
+                autoClose={5000}
+                hideProgressBar={false}
                 closeOnClick
                 pauseOnHover
                 className={"toast-container"}
-            draggable />
+                draggable
+            />
         </>
     );
 };

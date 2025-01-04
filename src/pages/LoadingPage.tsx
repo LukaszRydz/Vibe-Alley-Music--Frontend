@@ -1,4 +1,4 @@
-import { AiOutlineLoading } from '@react-icons/all-files/ai/AiOutlineLoading';
+import { AiOutlineLoading } from 'react-icons/ai'
 
 import styles from './Pages.module.scss'
 

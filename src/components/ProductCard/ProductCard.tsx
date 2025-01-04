@@ -26,9 +26,9 @@ export const ProductCard = ({ product, customClass }: { product: IProductInfo; c
 
     const discountPrice = discountCalc(product.discount, product.price);
 
-    const userFavTracks = user?.spotify?.favTracks?.titles;
-    if (user && userFavTracks) {
-        product.fav = product.tracks.find((track) => userFavTracks.includes(track)) ? true : false;
+    const userFavAlbums = user?.spotify?.favAlbums?.titles;
+    if (user && userFavAlbums) {
+        product.fav = userFavAlbums.includes(product.title);
     }
 
     const handleCardClick = () => {
@@ -77,7 +77,7 @@ export const ProductCard = ({ product, customClass }: { product: IProductInfo; c
             ref={card}
             onClick={handleCardClick}
         >
-            <Cover card={card} src={product.images.medium.url} fav={product.fav}/>
+            <Cover card={card} src={product.images.medium.url} fav={product.fav} releaseDate={product.releaseDate}/>
 
             <div className={styles.info}>
                 <h1 className={`${styles.title} shadow-anim`} title={product.title}>

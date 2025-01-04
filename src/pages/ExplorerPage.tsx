@@ -1,19 +1,20 @@
 import { Filters } from "../components/Filters/Filters"
-import { ProductList } from "../components/ProductList/ProductList"
+import { ProductExplorer } from "../components/ProductExplorer/ProductExplorer"
+
 
 import { CatalogProvider } from "../context/CatalogContext"
 
 import styles from './Pages.module.scss'
 
-export const CatalogPage = () => {    
+export const ExplorerPage = () => {    
     return (
         <div className={styles.page}>
             <CatalogProvider>
                 <Filters />
-                <ProductList />
+                <ProductExplorer />
             </CatalogProvider>
         </div>
     )
 }
 
-export default CatalogPage
+export default ExplorerPage

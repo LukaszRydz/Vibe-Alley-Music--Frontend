@@ -1,4 +1,4 @@
-import { FaSpotify } from "@react-icons/all-files/fa/FaSpotify";
+import { FaSpotify } from "react-icons/fa";
 
 import { connectToSpotify, disconnectFromSpotify } from "../../services/spotify/spotify";
 import { useContext } from "react";

@@ -6,24 +6,21 @@ import { NavbarBtn } from './NavbarBtn'
 import { loadLocalTranslations } from '../../translations/config';
 
 // Icons
-import { FaShoppingCart } from '@react-icons/all-files/fa/FaShoppingCart';
-import { FaUser } from "@react-icons/all-files/fa/FaUser";
-import { FaUserCog } from "@react-icons/all-files/fa/FaUserCog";
-import { FaSearch } from "@react-icons/all-files/fa/FaSearch";
+import { FaShoppingCart, FaUser, FaUserCog, FaSearch } from 'react-icons/fa';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context/User/User';
 import { CartCounter } from './CartCounter';
+import { Searcher } from './Searcher';
 
 // Styles
 import styles from './Navbar.module.scss'
-import { Searcher } from './Searcher';
 
 export const Navbar: React.FC = () => {
     const { user } = useContext(UserContext)!
     const [isSearchOpen, setIsSearchOpen] = useState(false)
-    
+
     const navigate = useNavigate()
     const { pathname } = useLocation()
 
@@ -56,11 +53,13 @@ export const Navbar: React.FC = () => {
                 
                 <NavbarBtn icon={<FaShoppingCart className={styles.icon}/>} text={t('btnCart')} isSearchOpen={isSearchOpen} children={<CartCounter />} clickEvent={() => navigate('/cart')}/>
                 {
-                    user ? <NavbarBtn icon={<FaUserCog className={styles.icon}/>} text={t('btnAccount')} isSearchOpen={isSearchOpen} clickEvent={() => navigate('/settings')}/> 
+                    user ? <NavbarBtn icon={<FaUserCog className={styles.icon}/>} isSearchOpen={isSearchOpen} clickEvent={() => navigate('/settings')}/> 
                     : 
                     !user && <NavbarBtn icon={<FaUser className={styles.icon}/>} text={t('btnLogin')} isSearchOpen={isSearchOpen} clickEvent={() => navigate('/auth')}/>
                 }
             </ul>
+
+            {!window.location.href.includes('catalog') && <button className={styles['catalog-btn']} onClick={() => navigate('/catalog')}>{t('btnCatalog')} {'>'}</button>}
         </div>
     )
 }

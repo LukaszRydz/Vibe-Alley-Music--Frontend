@@ -4,7 +4,6 @@ import SplitType from 'split-type';
 export const navbarBtnAnimation = (btn: HTMLLIElement) => {
     if (document.documentElement.getAttribute('animations') !== 'on') return
 
-
     const span = btn.querySelector('span') 
     const text = new SplitType(span!)
 

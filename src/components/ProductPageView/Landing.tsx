@@ -67,7 +67,7 @@ export const Landing = ({
                     className={styles.button} 
                     disabled={quantity === 0|| fetching} 
                     onClick={buyNow}>
-                        Kup teraz
+                        Buy Now
                     </button>
 
                     <button
@@ -79,7 +79,7 @@ export const Landing = ({
                             setFetching(false);
                         }}
                     >
-                        Do koszyka
+                        To Cart
                     </button>
                 </div>
             </div>

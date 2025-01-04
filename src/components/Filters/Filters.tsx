@@ -15,8 +15,7 @@ import styles from './Filters.module.scss'
 import { Sort } from "./_Sort/Sort"
 
 export const Filters = () => {
-    const context = useContext(CatalogContext)!
-    const { filters, changeFilters }: IContextValues = context;
+    const { filters, changeFilters, filterCount }: IContextValues = useContext(CatalogContext)!
     const [sort, setSort] = useState<{ type: string; order: string }>(filters.sort ?? { type: '', order: '' });
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [inputQuery, setInputQuery] = useState<string>(filters.inputQuery ?? '');
@@ -43,7 +42,7 @@ export const Filters = () => {
 
     }, [filters])
 
-    const applyFilters = () => changeFilters({ inputQuery, options, genres, price, sort }, 1);
+    const applyFilters = () => changeFilters({ inputQuery, options, genres, price }, 1);
     const switchFilter = () => setIsFilterOpen(!isFilterOpen);
 
     return (
@@ -58,7 +57,9 @@ export const Filters = () => {
                 <button className={styles['filter-btn']} onClick={applyFilters}>Apply</button>    
                 
             </div>
-            <button className={`${styles['switch-btn']} ${isFilterOpen && styles['switch-close']} `} onClick={switchFilter}>{isFilterOpen ? ' Close' : 'Filters'}</button>
+            <button className={`${styles['switch-btn']} ${isFilterOpen && styles['switch-close']} `} onClick={switchFilter}>
+                {isFilterOpen ? ' Close' : `Filters ${filterCount ? filterCount : ''}`}
+            </button>
         </div>
     )
 }

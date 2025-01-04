@@ -1,32 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 
-import { FaMoon } from '@react-icons/all-files/fa/FaMoon';
-import { FaSun } from '@react-icons/all-files/fa/FaSun';
+import { BsCircleSquare } from "react-icons/bs";
 
-import { BsCircleSquare } from "@react-icons/all-files/bs/BsCircleSquare";
+import i18n from 'i18next';
 
 import styles from './Footer.module.scss';
+import { AppContext } from '../../context/App';
 
 export const Switchers = () => {
-    const [theme, setTheme] = useState<string | null>();
+    // const [theme, setTheme] = useState<string | null>();
     const [animations, setAnimations] = useState<string>('');
+    const [lang, setLang] = useState<string>(i18n.language);
+    const { setLanguage } = useContext(AppContext)!
 
     useEffect(() => {
-        setTheme(localStorage.getItem('theme') || 'light');
         setAnimations(localStorage.getItem('animations') || 'on');
     }, []);
-
-    const changeTheme = () => {
-        if (theme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-            setTheme('light');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            setTheme('dark');
-        }
-    }
 
     const changeAnimations = () => {
         if (animations === 'off') {
@@ -41,14 +30,21 @@ export const Switchers = () => {
         window.location.reload();
     }
 
+    const changeLanguage = () => {
+        const changed = lang === 'en' ? 'pl' : 'en';
+        i18n.changeLanguage(changed)
+        setLang(changed)
+        setLanguage(changed)
+    }
+
     return (
         <div className={styles["switcher-wrapper"]}>
-            <button className={`${styles.switcher}`} onClick={changeAnimations}>
+            <button className={`${styles.switcher}`} onClick={changeAnimations} title='On/off animations'>
                 <BsCircleSquare className={`${styles.icon} ${animations === 'off' ? styles['icon-off'] : ''}`} />
             </button>
-            
-            <button className={`${styles.switcher}`} onClick={changeTheme}>
-                {/* {theme === 'light' ? <FaMoon className={styles.icon}/> : <FaSun className={styles.icon} />} */}
+
+            <button className={`${styles.switcher} ${styles.language}`} onClick={changeLanguage}>
+                {lang.toUpperCase()}
             </button>
         </div>
     )

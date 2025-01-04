@@ -27,15 +27,15 @@ export const Genres = ({ setGenres, genres }: { setGenres: (value: string[]) => 
         "alternative"
     ]
 
-    const toggleGenre = (genre: string) => {
-        if (genres.includes(genre)) {
-            setGenres(genres.filter((g) => g !== genre.toLowerCase()));
+    const toggleGenre = (_genre: string) => {
+        const lowerCaseGenre = _genre.toLowerCase();
+        
+        if (genres.includes(lowerCaseGenre)) {
+            setGenres(genres.filter((g) => g !== lowerCaseGenre));
         } else {
-            setGenres([...genres, genre.toLowerCase()]);
+            setGenres([...genres, lowerCaseGenre]);
         }
     }
-
-    
 
     return (
         <div className={styles["genres-wrapper"]}>

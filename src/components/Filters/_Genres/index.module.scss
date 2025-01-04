@@ -23,12 +23,14 @@
             border: 1px solid var(--primary-color);
             border-radius: 25px;
 
-            &:hover {
-                background-color: var(--text-color);
-                span { color: var(--background-color); }                
-            }
-
             transition: background-color .5s, color .5s;
+            
+            @media (min-width: 1500px) {
+                &:hover {
+                    background-color: var(--product-page-text-color);
+                    color: black;
+                }
+            }
         }
 
         .active, .active:hover {

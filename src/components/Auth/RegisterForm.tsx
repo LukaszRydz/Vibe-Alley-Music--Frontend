@@ -1,14 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 import { loadLocalTranslations } from "../../translations/config";
 import { emailValidator, passwordValidator } from "./validators";
 
-import styles from "./index.module.scss";
 import { register } from "../../services/auth/auth";
-import { UserContext } from "../../context/User/User";
 
-export const RegisterForm = () => {
-    const { setUser, setCart } = useContext(UserContext)!;
+import styles from "./index.module.scss";
+
+export const RegisterForm = ({ setCurrentForm } : { setCurrentForm: (x: string) => void}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -23,10 +22,7 @@ export const RegisterForm = () => {
             if (response.error) {
                 setError(response.error);
                 console.log(response.error);
-            } else {
-                setUser(response);
-                setCart(response.cart);
-            }
+            } else setCurrentForm("signIn");
         });
     };
 

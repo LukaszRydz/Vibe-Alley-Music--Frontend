@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
-import { IoIosCloseCircle } from "@react-icons/all-files/io/IoIosCloseCircle";
+import { IoIosCloseCircle } from 'react-icons/io';
 
 import styles from "./Navbar.module.scss";
 

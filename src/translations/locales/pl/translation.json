@@ -6,10 +6,11 @@
         "btnCart": "Koszyk",
         "btnLogin": "Zaloguj",
         "btnAccount": "Konto",
-        "btnSearch": "Szukaj"
+        "btnSearch": "Szukaj",
+        "btnCatalog": "Otwórz katalog"
     },
     "Catalog": {
-        "ProductList": {
+        "ProductExplorer": {
             "queryFetching": "Pobieranie produktów...",
             "queryError": "Wystąpił błąd podczas pobierania produktów.",
 
@@ -63,5 +64,17 @@
         "signUp": "Zarejestruj się",
         "signIn": "Zaloguj się",
         "forgotPassword": "Zapomniałeś hasła?"
+    },
+    "Orders": {
+        "returnInfo": "Do każdej paczki z zamówieniem dołączamy kartę zwrotu oraz szczegółową instrukcję zwrotu, które pomogą Ci w szybkim i wygodnym dokonaniu zwrotu. Zachęcamy do zapoznania się z nimi po otrzymaniu przesyłki.",
+        "delivery": "Dostawca",
+        "payment": "Płatność",
+        "total": "Koszt całkowity",
+        "id": "Numer zamówienia",
+        "title": "Tytuł",
+        "createdAt": "Data zamówienia"
+    },
+    "ChatBot": {
+        "responseReportInfo": "Asystent wirtualny jest wciąż w fazie rozwoju. Prosimy o zgłaszanie wszelkich problemów związanych z asystentem zespołowi wsparcia, klikając poniższy przycisk. Zgłoszenie jest anonimowe!"
     }
 }

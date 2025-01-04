@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { FaSpotify } from "@react-icons/all-files/fa/FaSpotify";
-import { IoIosWarning } from "@react-icons/all-files/io/IoIosWarning";
+import { FaSpotify } from "react-icons/fa";
+import { IoIosWarning } from "react-icons/io";
 
 import styles from "./ProductPageView.module.scss";
 import '../../styles/global/buttons.scss';
@@ -31,15 +31,15 @@ export const TrackList = ({ spotifyAlbumId }: { spotifyAlbumId: string }) => {
         return (
             <div className={styles["iframe-warning"]}>
                 <IoIosWarning />
-                <span>Uwaga! Odtwarzacz Spotify nie ma wbudowanego regulatora głośności. Proszę ścisz głośność przeglądarki w systemie.</span>
-                <button onClick={() => setLoudWarning(false)} className="btn-1">Rozumiem</button>
+                <span>Warning! The Spotify player does not have a built-in volume control. Please lower the browser volume in your system.</span>
+                <button onClick={() => setLoudWarning(false)} className="btn-1">Understand</button>
             </div>
         )
     }
 
     return (
         <div className={styles["spotify-iframe"]}>
-            <h1 className={styles.header}>Lista utworów:</h1>
+            <h1 className={styles.header}>Track list:</h1>
             <div className={styles["iframe-container"]}>
                 <iframe
                     style={{ display: `${iframeLoaded ? "block" : "none"}` }}

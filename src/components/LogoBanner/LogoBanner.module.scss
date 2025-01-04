@@ -1,0 +1,28 @@
+.logo-banner {
+    width: 100%;
+
+    padding: 1rem 0.5rem;
+
+    display: flex;
+
+    --gap: 20px;
+    gap: var(--gap);
+
+    overflow-x: hidden;
+    background-color: white;
+
+    .logo-banner__text {
+        text-wrap: nowrap;
+        color: black;
+        font-size: var(--f-size-big);
+        font-weight: 700;
+
+        animation: scroll 40s linear infinite;
+    }
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+}

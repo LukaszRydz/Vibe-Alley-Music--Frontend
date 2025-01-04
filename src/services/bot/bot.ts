@@ -3,19 +3,24 @@ import { Host } from '../../utils/variables';
 
 axios.defaults.withCredentials = true;
 
-export const isOnline = async () => {
+type IsOnlineResponse = { 
+    chatStatus: boolean; 
+    model_name: string; 
+};
+
+export const isOnline = async (): Promise<IsOnlineResponse> => {
     try {
         const res = await axios.get(`${Host.BOT}/is-online`, { withCredentials: true });
-        return res.status === 200;
+        return { chatStatus: res.status === 200, model_name: res.data.name };
+    } catch (e) {
+        return { chatStatus: false, model_name: '' };
     }
-    catch (e) {
-        return false;
-    }
-}
+};
 
 export const sendMessage = async (message: string) => {
     try {
         const res = await axios.post(`${Host.BOT}/chat`, { message, withCredentials: true });
+        console.log(res.data);
         return res.data;
     }
     catch (e) {
@@ -24,7 +29,7 @@ export const sendMessage = async (message: string) => {
 }
 
 export const sendReport = async (body: ISendReportBody) => {
-    const res = await axios.post(`${Host.BOT}/report`, body)
+    await axios.post(`${Host.BOT}/report`, body) 
     // TODO
 }
 

@@ -141,7 +141,10 @@
 @media (max-width: 950px) {
     .empty, .products {
         width: 100%;
-        height: 100%;
         overflow: none;
+    }
+
+    .empty {
+        height: 82vh;
     }
 }

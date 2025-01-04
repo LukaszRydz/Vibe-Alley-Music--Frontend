@@ -24,7 +24,10 @@
             z-index: 2;
 
             border-radius: 15px;
+        }
 
+        .old-album {
+            filter: sepia(100%) brightness(80%) contrast(70%) saturate(50%) ;
         }
 
         &::before {
@@ -186,6 +189,10 @@
     .discount::before {
         background-color: var(--product-page-text-color) !important;
     }
+}
+
+.products-list-style {
+    margin: 0 auto;
 }
 
 .fetching {

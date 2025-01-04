@@ -1,5 +1,5 @@
 export interface IUser {
-    favTracks: boolean;
+    favAlbums: boolean;
     auth: {
         password: string;
         salt: string;
@@ -22,7 +22,7 @@ export interface ISpotifyData {
         scope: string;
         next_refresh: number;
     },
-    favTracks: {
+    favAlbums: {
         next_refresh: number;
         titles: string[];
     };
@@ -55,6 +55,7 @@ export interface ICartProductInfo {
 
 export interface IFilters {
     inputQuery?: string;
+    favAlbumsArr?: string[];
     options?: {
         available: boolean;
         discount: boolean;
@@ -64,7 +65,7 @@ export interface IFilters {
         min: number;
         max: number;
     },
-    sort?: { type: string, order: string };
+    sort?: { type: "title" | "release" | "discount" | "price" | "duration", order: "asc" | "desc" };
 }
 
 export interface IPageInfo {

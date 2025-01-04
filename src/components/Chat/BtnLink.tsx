@@ -5,7 +5,7 @@ import styles from "./BtnLink.module.scss";
 
 export const BtnLink = ({ link } : { link: string}) => {
     const navigate = useNavigate();
-
+    console.log(link.split('/'))
     const handleClick = () => {
         const loc = window.location.host;
         if (!link) return;

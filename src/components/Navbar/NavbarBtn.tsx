@@ -1,14 +1,19 @@
 // Hooks
-import { useRef } from "react"
+import { useContext, useRef } from "react"
 import { useGSAP } from '@gsap/react';
+import { AppContext } from "../../context/App";
 
 // Animations
 import { navbarBtnAnimation } from "../../animations/Navbar";
 
 // Styles
 import styles from './Navbar.module.scss'
+import { UserContext } from "../../context/User/User";
 
 export const NavbarBtn: React.FC<INavbarBtnProps> = ({ icon, text, clickEvent, isSearchOpen, children }) => {
+    const { language } = useContext(AppContext)!
+    const { user } = useContext(UserContext)!
+
     const btn = useRef<HTMLLIElement>(null);
 
     useGSAP(() => {
@@ -16,13 +21,13 @@ export const NavbarBtn: React.FC<INavbarBtnProps> = ({ icon, text, clickEvent, i
             const cleanup = navbarBtnAnimation(btn.current)
             return () => cleanup && cleanup()
         }
-    }, [])
+    }, [language, user])
 
     return (
         <li ref={btn} className={`${styles['nav-btn']} ${isSearchOpen ? styles['search-opened'] : ''}`} onClick={clickEvent}>
             {icon}
             {children}
-            <span className={styles['nav-btn-text']}>{text}</span>
+            {text && <span className={styles['nav-btn-text']}>{text}</span>}
         </li>
     )
 }
@@ -30,7 +35,7 @@ export const NavbarBtn: React.FC<INavbarBtnProps> = ({ icon, text, clickEvent, i
 
 interface INavbarBtnProps {
     icon: JSX.Element;
-    text: string;
+    text?: string;
     clickEvent?: () => void;
     isSearchOpen?: boolean;
     children?: React.ReactNode;

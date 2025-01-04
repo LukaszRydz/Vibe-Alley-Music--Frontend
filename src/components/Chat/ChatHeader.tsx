@@ -1,16 +1,15 @@
 import { IMessage } from "./Chat";
 
-import { IoIosCloseCircle } from "@react-icons/all-files/io/IoIosCloseCircle";
-import { IoMdHelpCircle } from "@react-icons/all-files/io/IoMdHelpCircle";
-
-import styles from "./Chat.module.scss";
+import { IoIosCloseCircle, IoMdHelpCircle } from "react-icons/io";
 import { Host } from "../../utils/variables";
 
-export const ChatHeader = ({ addMessage, setShowed }: { addMessage: (messages: IMessage, local?: boolean) => void, setShowed: (is: boolean) => void }) => {
+import styles from "./Chat.module.scss";
+
+export const ChatHeader = ({ addMessage, setShowed, model_name }: IChatHeader) => {
     const showHelp = () => {
         addMessage({
             id: (Math.random() + 1).toString(36).substring(7),
-            from: "bot",
+            from: "none",
             content: `
                 You can ask me a question, and I will do my best
                 to answer it by analyzing its content.
@@ -29,9 +28,15 @@ export const ChatHeader = ({ addMessage, setShowed }: { addMessage: (messages: I
 
     return (
         <div className={styles["chat-header"]}>
-            <h1>ChatBot v0.0.1</h1>
+            <h1>Connected to {model_name}</h1>
             <IoMdHelpCircle className={styles["chat-header_icon"]} onClick={showHelp} />
             <IoIosCloseCircle className={styles["chat-header_icon"]} onClick={() => setShowed(false)}/>
         </div>
     );
 };
+
+interface IChatHeader {
+    addMessage: (messages: IMessage, local?: boolean) => void;
+    setShowed: (is: boolean) => void;
+    model_name: string;
+}

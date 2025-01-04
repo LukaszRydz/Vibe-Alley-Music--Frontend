@@ -1,4 +1,4 @@
-import { IoSend } from '@react-icons/all-files/io5/IoSend';
+import { IoSend } from 'react-icons/io5';
 import { useState } from 'react';
 
 import styles from './Chat.module.scss';

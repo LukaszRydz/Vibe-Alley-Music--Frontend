@@ -1,4 +1,4 @@
-import { IoChatboxEllipsesSharp } from '@react-icons/all-files/io5/IoChatboxEllipsesSharp';
+import { IoChatboxEllipsesSharp } from "react-icons/io5";
 
 import { useEffect, useState } from 'react';
 import { ChatHeader } from './ChatHeader';
@@ -11,11 +11,13 @@ import styles from './Chat.module.scss'
 export const Chat = () => {
     const [messages, setMessages] = useState<IMessage[]>([]);
     const [isShowed, setIsShowed] = useState(false);
-    const [isBotOnline, setIsBotOnline] = useState(false);
+    const [isBotOnline, setIsBotOnline] = useState({ chatStatus: false, model_name: '' });
     const [isResponding, setIsResponding] = useState(false);
 
     useEffect(() => {
-        isOnline().then(state => setIsBotOnline(state));
+        isOnline().then(res => {
+            setIsBotOnline(res);
+        });
     }, []);
 
     const addMessage = (message: IMessage, local?: boolean) => {
@@ -26,16 +28,16 @@ export const Chat = () => {
         if (local) return;
 
         setIsResponding(true);
+        const modelLoadingMessage = setTimeout(() => {
+            setMessages(prevMessages => [...prevMessages, answer.wait]);
+        }, 3000);
+
         sendMessage(message.content).then((res) => {
+            clearTimeout(modelLoadingMessage);
+            
             if (!res) {
                 setIsResponding(false);
-
-                setMessages(prevMessages => [...prevMessages, {
-                    id: (Math.random() + 1).toString(36).substring(7),
-                    from: 'bot',
-                    content: 'There was an error processing your request. Please try again later. 🙁',
-                    status: 'error'
-                }]);
+                setMessages(prevMessages => [...prevMessages, answer.error]);
 
                 return;
             }
@@ -58,7 +60,7 @@ export const Chat = () => {
         });
     }
 
-    if (!isBotOnline) return null;
+    if (!isBotOnline.chatStatus) return null;
 
     if (!isShowed) {
         return (
@@ -70,7 +72,7 @@ export const Chat = () => {
 
     return (
         <div className={styles.chat}>
-            <ChatHeader addMessage={addMessage} setShowed={setIsShowed}/>
+            <ChatHeader addMessage={addMessage} setShowed={setIsShowed} model_name={isBotOnline.model_name}/>
             <Messages messages={messages} isResponding={isResponding}/>
             {!isResponding && <Input addMessage={addMessage}/>}
         </div>
@@ -86,4 +88,20 @@ export interface IMessage {
     status?: string;
     customTag?: string[];
     lang?: string | 'en';
+}
+
+const answer = {
+    wait: {
+        id: (Math.random() + 1).toString(36).substring(7),
+        from: 'none',
+        content: 'Model is currently loading to memory. Please wait a moment. ⏳',
+        status: 'error'
+    },
+
+    error: {
+        id: (Math.random() + 1).toString(36).substring(7),
+        from: 'bot',
+        content: 'There was an error processing your request. Please try again later. 🙁',
+        status: 'error'
+    }
 }

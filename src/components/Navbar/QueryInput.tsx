@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { FaSearch } from '@react-icons/all-files/fa/FaSearch'
+import { FaSearch } from 'react-icons/fa'
 import styles from './Navbar.module.scss'
 
 export const QueryInput: React.FC = () => {

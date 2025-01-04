@@ -17,7 +17,7 @@ export const Auth = () => {
             case "signIn":
                 return <SignInForm />;
             case "register":
-                return <RegisterForm />;
+                return <RegisterForm setCurrentForm={setCurrentForm}/>;
             case "forgotPassword":
                 return <ForgotPasswordForm />;
             default:

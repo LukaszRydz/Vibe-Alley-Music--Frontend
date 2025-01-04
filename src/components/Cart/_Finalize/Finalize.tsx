@@ -28,14 +28,15 @@ export const Finalize = ({ products } : {products: ICartProductInfo[]}) => {
     const [phone, setPhone] = useState(data);
     const [email, setEmail] = useState(data);
     const [isValid, setIsValid] = useState(false);
+    const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
 
     useEffect(() => {
-        if (name.err === '' && city.err === '' && street.err === '' && postalCode.err === '' && phone.err === '' && email.err === '') {
+        if (name.err === '' && city.err === '' && street.err === '' && postalCode.err === '' && phone.err === '' && email.err === '' && isPolicyAccepted) {
             setIsValid(true);
         } else {
             setIsValid(false);
         }
-    }, [name, city, street, postalCode, phone, email]);
+    }, [name, city, street, postalCode, phone, email, isPolicyAccepted])
 
     if (!user) {
         return (
@@ -65,18 +66,25 @@ export const Finalize = ({ products } : {products: ICartProductInfo[]}) => {
         <div className={styles.finalize}>
             <h1 className={styles.title}>Finalize</h1>
 
-            <div className={styles.form}>
-                <PaymentMethods payMethod={payMethod} setPayMethod={setPayMethod} />
-                <DeliveryMethods deliveryMethod={deliveryMethod} setDeliveryMethod={setDeliveryMethod} setDeliveryCost={setDeliveryCost} />
+            <PaymentMethods payMethod={payMethod} setPayMethod={setPayMethod} />
+            <DeliveryMethods deliveryMethod={deliveryMethod} setDeliveryMethod={setDeliveryMethod} setDeliveryCost={setDeliveryCost} />
 
-                <DataInput label='Imię i nazwisko*:' setValue={setName} validator={nameValidator}/>
-                <DataInput label='Miasto*:' setValue={setCity} validator={cityValidator}/>
-                <DataInput label='Ulica*:' setValue={setStreet} validator={streetValidator}/>
-                <DataInput label='Kod pocztowy*:' setValue={setPostalCode} validator={postalCodeValidator}/>
-                <DataInput label='Telefon*:' setValue={setPhone} validator={phoneValidator}/>
-                <DataInput label='Email*:' setValue={setEmail} validator={emailValidator_withError}/>
+            <DataInput label='Full name*:' setValue={setName} validator={nameValidator}/>
+            <DataInput label='City*:' setValue={setCity} validator={cityValidator}/>
+            <DataInput label='Street*:' setValue={setStreet} validator={streetValidator}/>
+            <DataInput label='Post Code*:' setValue={setPostalCode} validator={postalCodeValidator}/>
+            <DataInput label='Phone*:' setValue={setPhone} validator={phoneValidator}/>
+            <DataInput label='Email*:' setValue={setEmail} validator={emailValidator_withError}/>
+
+            <div className={styles.policy}>
+                <input type='checkbox' id='policy' onChange={() => setIsPolicyAccepted(!isPolicyAccepted)} />            
+                <label htmlFor='policy'>
+                    I accept the 
+                    {' '}
+                    <a rel='noreferrer' onClick={() => navigate('/policy', { replace: true })}>Privacy Policy</a>
+                </label>
             </div>
-            <span className='todo'>Add consent for data processing, etc.</span>
+
             <Checkout products={products} isValid={isValid} deliveryCost={deliveryCost} getCheckoutData={getCheckoutData()}/>
         </div>
     )

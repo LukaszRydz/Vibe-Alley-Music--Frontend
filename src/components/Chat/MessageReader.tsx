@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { AiFillSound } from '@react-icons/all-files/ai/AiFillSound';
-import { FaVolumeMute } from '@react-icons/all-files/fa/FaVolumeMute';
+import { AiFillSound } from "react-icons/ai";
+import { FaVolumeMute } from "react-icons/fa";
 
 import styles from './Chat.module.scss';
 import { urlRegex } from '../../utils/helpers';

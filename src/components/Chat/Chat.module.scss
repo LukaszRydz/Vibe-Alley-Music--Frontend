@@ -2,7 +2,7 @@
     cursor: pointer;
     
     position: fixed;
-    bottom: 1.5rem;
+    bottom: 2.3rem;
     right: 1rem;
     z-index: 99;
 
@@ -228,6 +228,16 @@
                     border-radius: 50%;
 
                     background-color: var(--chat-color-quaternary);
+                }
+            }
+
+            .report-info {
+                margin: 1rem 0;
+
+                p {
+                    margin-top: .4rem;
+                    font-size: .7rem;
+                    opacity: 0.6;
                 }
             }
         }

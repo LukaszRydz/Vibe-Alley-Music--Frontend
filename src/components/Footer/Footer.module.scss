@@ -33,7 +33,7 @@
             position: absolute;
             top: 50%;
             right: 0;
-            transform: translate(-50%, -50%);
+            transform: translate(-25%, -50%);
             
             display: flex;
             justify-content: center;
@@ -51,6 +51,8 @@
                 background: none;
                 border: none;
                 
+                border-radius: 50%;
+
                 .icon {
                     height: var(--f-size-medium);
                     width: var(--f-size-medium);
@@ -61,12 +63,21 @@
                 
                 &:hover {
                     background-color: var(--hover-color);
-                    border-radius: 50%;
                 }
                 
                 .icon-off {
                     fill: red;
                 }
+            }
+
+
+            .language {
+                padding: .5rem;
+
+                box-sizing: content-box;
+
+                color: var(--text-color);
+                font-weight: 800;
             }
         }
     }

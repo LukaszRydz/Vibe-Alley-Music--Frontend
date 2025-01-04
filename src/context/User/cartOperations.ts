@@ -1,4 +1,4 @@
-import { ICart } from "../../interfaces/interfaces";
+ import { ICart } from "../../interfaces/interfaces";
 import { _request_addProductToCart, _request_removeProductFromCart, _request_updateProductInCart } from "../../services/shop/products";
 
 
@@ -67,6 +67,10 @@ export const CartOperations = {
         
         localStorage.removeItem('cart');
         return cart as ICart[]
+    },
+
+    countItems(cart: ICart[]) {
+        return cart.reduce((acc, item) => acc + item.quantity, 0);
     },
 
     setLocalStorage(cart: ICart[]) { cart && cart.length > 0 && localStorage.setItem('cart', JSON.stringify(cart)); },
