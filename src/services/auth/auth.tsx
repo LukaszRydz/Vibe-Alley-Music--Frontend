@@ -41,8 +41,8 @@ export const signIn = async (email: string, password: string) => {
         }
 
         localStorage.setItem('auto-login', JSON.stringify("true"));
-        console.log(response.data);
-        console.log(document.cookie);
+        const cookieValue = document.cookie
+        console.log(cookieValue)
         return response.data;
     } catch (error) {
         return { error: 'Error during sign in' }
@@ -120,7 +120,6 @@ export const getAccount = async () => {
         if (response.status !== 200) {
             return { error: 'Error during auto login' }
         }
-
         return response.data;
     } catch (err) {
         console.error(err);
