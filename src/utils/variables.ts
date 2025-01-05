@@ -8,7 +8,7 @@
 // }
 
 export class Host {
-    private static readonly NGROK_HOST = `https://2752-185-87-137-39.ngrok-free.app`;
+    private static readonly NGROK_HOST = 'https://92fc-185-87-137-39.ngrok-free.app';
 
     public static readonly SHOP = `${this.NGROK_HOST}/shop`;
     public static readonly CLIENT = `${this.NGROK_HOST}/client`; 
