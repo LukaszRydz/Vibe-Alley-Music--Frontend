@@ -15,5 +15,5 @@ export class Host {
     public static readonly ADMIN = `${this.NGROK_HOST}/admin`;    
     public static readonly BOT = `${this.NGROK_HOST}/bot`;        
     public static readonly SPOTIFY = `${this.NGROK_HOST}/spotify`;
-    public static readonly FRONT = `https://lukaszrydz.github.io/Vibe-Alley-Music--Frontend`;         
+    public static readonly FRONT = `http://localhost:5173`;         
 }
