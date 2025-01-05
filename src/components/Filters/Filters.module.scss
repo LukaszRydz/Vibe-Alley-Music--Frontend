@@ -56,8 +56,7 @@
     position: fixed;
     left: 0;
     top: calc(50vh);
-    rotate: 90deg;
-    transform: translate(calc(-50% + 45px), 100%);
+    transform: translate(calc(-50% + 16px), 100%) rotate(90deg);
     z-index: 1000;
 
     display: block;
@@ -76,6 +75,7 @@
 }
 
 .switch-close {
+    transform: rotate(270deg) !important;
     left: calc(40vw + 1px);
 }
 
