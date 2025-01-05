@@ -9,7 +9,7 @@ export default defineConfig({
         host: "0.0.0.0",
         port: 5173,
     },
-    // base: "/Vibe-Alley-Music--Frontend/",
+    base: "/Vibe-Alley-Music--Frontend/",
     build: {
         minify: "terser",
         cssMinify: "lightningcss",
