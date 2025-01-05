@@ -3,6 +3,8 @@ import { _fetchProductsInfo, _fetchProductsDetails } from '../endpoints'
 import { ICart, IFilters } from '../../interfaces/interfaces';
 import { Host } from '../../utils/variables';
 
+axios.defaults.withCredentials = true;
+
 export const fetchProductsInfo = async (filters: IFilters, currentPage: number, limit?: 10 | number) => {
     try {
         const response = await axios.get(_fetchProductsInfo + `?page=${currentPage}&limit=${limit}`, {

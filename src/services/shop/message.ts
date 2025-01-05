@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { Host } from '../../utils/variables';
 
+axios.defaults.withCredentials = true;
+
 export const sendContactMessage = async (email: string, name: string, message: string) => {
     const response = await axios.post(`${Host.SHOP}/message`, {
         email,
