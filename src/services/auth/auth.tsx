@@ -41,8 +41,6 @@ export const signIn = async (email: string, password: string) => {
         }
 
         localStorage.setItem('auto-login', JSON.stringify("true"));
-        const cookieValue = document.cookie
-        console.log(cookieValue)
         return response.data;
     } catch (error) {
         return { error: 'Error during sign in' }

@@ -33,12 +33,6 @@ export const App = () => {
     document.documentElement.setAttribute('animations', localStorage.getItem('animations') || 'on');
     document.documentElement.setAttribute('auto-read', localStorage.getItem('auto-read') || 'off');
 
-    // cookie
-    setInterval(() => {
-        const cookieValue = document.cookie
-        console.log(cookieValue)
-    }, 1000);
-
     return (
         <AppProvider>
             <UserProvider>
