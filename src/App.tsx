@@ -29,7 +29,7 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/pagination';
 
 export const App = () => {
-    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    document.documentElement.setAttribute('data-theme', 'dark');
     document.documentElement.setAttribute('animations', localStorage.getItem('animations') || 'on');
     document.documentElement.setAttribute('auto-read', localStorage.getItem('auto-read') || 'off');
 
